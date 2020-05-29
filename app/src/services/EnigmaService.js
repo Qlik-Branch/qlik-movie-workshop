@@ -78,6 +78,10 @@ class EnigmaService {
     const field = await this.document.getField(fieldName)
     await field.toggleSelect(selection)
   }
+
+  async clearSelections() {
+    await this.document.clearAll()
+  }
 }
 
 const enigmaService = EnigmaService.getInstance()

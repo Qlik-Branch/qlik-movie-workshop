@@ -5,3 +5,12 @@ body {
   background: #0e131a;
   color: white;
 }
+
+.button {
+  border: solid 1px #ffffff;
+  background-color: transparent;
+  color: #ffffff;
+  font-size: 16px;
+  padding: 10px 20px;
+  border-radius: 20px;
+}
