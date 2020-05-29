@@ -1,0 +1,15 @@
+.Pagination {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  margin: 0.5em 0;
+}
+
+.buttonContainer {
+  width: 50%;
+  display: flex;
+}
+
+.nextButton {
+  justify-content: flex-end;
+}
