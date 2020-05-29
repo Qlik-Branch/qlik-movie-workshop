@@ -4,6 +4,7 @@ import schema from "enigma.js/schemas/12.170.2.json"
 class EnigmaService {
   qix = null
   document = null
+  clearSearch = null
 
   static instance = null
 
@@ -81,6 +82,28 @@ class EnigmaService {
 
   async clearSelections() {
     await this.document.clearAll()
+    if (this.clearSearch) {
+      this.clearSearch()
+      this.clearSearch = null
+    }
+  }
+
+  async search(terms, fields, callback) {
+    this.clearSearch = callback
+    const searchResults = await this.document.searchResults(
+      { qSearchFields: fields },
+      terms,
+      { qOffset: 0, qCount: 20 }
+    )
+    if (searchResults.qSearchGroupArray.length > 0) {
+      return await this.document.selectAssociations(
+        { qSearchFields: fields },
+        terms,
+        0
+      )
+    } else {
+      return false
+    }
   }
 }
 

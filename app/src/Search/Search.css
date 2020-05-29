@@ -1,0 +1,27 @@
+.Search {
+  width: 15%;
+  text-align: right;
+}
+
+.searchInput {
+  background: transparent;
+  color: white;
+  border: solid 1px #a6a6a6;
+  border-radius: 20px;
+  padding: 10px;
+  display: flex;
+  flex-grow: 1;
+}
+
+input {
+  border: 0;
+  background: transparent;
+  color: white;
+  font-size: 16px;
+  flex: 1;
+  margin-left: 5px;
+}
+
+input::placeholder {
+  color: #a6a6a6;
+}
