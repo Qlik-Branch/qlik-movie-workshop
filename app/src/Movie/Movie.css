@@ -1,0 +1,81 @@
+.Movie {
+  width: 24%;
+  padding: 0.5%;
+  margin-bottom: 50px;
+}
+
+.poster {
+  position: relative;
+  width: 100%;
+  padding-top: 100%;
+  overflow: hidden;
+  margin-bottom: 20px;
+  background-color: #525252;
+}
+
+.poster img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.title {
+  font-size: 26px;
+}
+
+.details {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.mainDetails {
+  width: 85%;
+}
+
+.moreDetails {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 10px;
+  position: relative;
+}
+
+.moreDetailsPane {
+  position: absolute;
+  bottom: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #2d2d2d;
+  width: 230px;
+  padding: 15px;
+  z-index: 1;
+}
+
+.moreDetailsPane::after {
+  content: "";
+  position: absolute;
+  border-top: solid 10px #2d2d2d;
+  border-left: solid 10px transparent;
+  border-right: solid 10px transparent;
+  bottom: -8px;
+  left: 120px;
+}
+
+.moreDetailsPane * {
+  width: 50%;
+  font-size: 14px;
+  padding-bottom: 5px;
+}
+
+.moreDetailsPane label {
+  color: #dddddd;
+  width: 40%;
+}
+
+.subDetails {
+  color: #909090;
+}

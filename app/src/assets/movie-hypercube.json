@@ -1,0 +1,71 @@
+{
+    "qInfo": {
+      "qType": "table",
+      "qId": "table_id"
+    },
+    "labels": true,
+    "qHyperCubeDef": {
+      "qDimensions": [
+        {
+          "qDef": {
+            "qFieldDefs": ["movie_title"]
+          }
+        },
+        {
+          "qDef": {
+            "qFieldDefs": ["content_rating"]
+          }
+        },
+        {
+          "qDef": {
+            "qFieldDefs": ["title_year"]
+          }
+        },
+        {
+          "qDef": {
+            "qFieldDefs": ["director_name"]
+          }
+        },
+        {
+          "qDef": {
+            "qFieldDefs": ["actor_1_name"]
+          }
+        },
+        {
+          "qDef": {
+            "qFieldDefs": ["actor_2_name"]
+          }
+        },
+        {
+          "qDef": {
+            "qFieldDefs": ["actor_3_name"]
+          }
+        },
+        {
+          "qDef": {
+            "qFieldDefs": ["language"]
+          }
+        },
+        {
+          "qDef": {
+            "qFieldDefs": ["country"]
+          }
+        },
+        {
+          "qDef": {
+            "qFieldDefs": ["poster_url"]
+          }
+        }
+      ],
+      "qInitialDataFetch": [
+        {
+          "qTop": 0,
+          "qHeight": 100,
+          "qLeft": 0,
+          "qWidth": 10
+        }
+      ],
+      "qSuppressZero": false,
+      "qSuppressMissing": true
+    }
+  }
