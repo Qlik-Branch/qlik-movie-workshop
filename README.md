@@ -17,3 +17,10 @@ In order to take full advantage of this workshop the following technologies shou
 
 - Node.js (the latest LTS version)
 - npm/yarn
+
+## Step 1 - Loading data into the Engine
+
+1. ensure you have a running local engine
+2. `cd data-load`
+3. `npm install`
+4. `npm start`
