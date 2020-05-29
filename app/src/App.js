@@ -1,11 +1,13 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, Fragment } from "react"
 import "./App.css"
 import EnigmaService from "./services/EnigmaService"
 import Header from "./Header"
 import Main from "./Main"
+import Loading from "./Loading"
+import Login from "./Login"
 
 const App = () => {
-  const [enigmaInitialized, setEnigmaInitialized] = useState(false)
+  const [enigmaInitialized, setEnigmaInitialized] = useState(0)
 
   useEffect(() => {
     const initializeEnigma = async () => {
@@ -14,13 +16,16 @@ const App = () => {
     initializeEnigma()
   }, [])
 
-  return enigmaInitialized ? (
+  return (
     <div className="App">
-      <Header />
-      <Main />
+      {enigmaInitialized === 0 ? (
+        <Loading />
+      ) : enigmaInitialized === 1 ? (
+        <Fragment><Header /><Main /></Fragment>
+      ) : (
+        <Login />
+      )}
     </div>
-  ) : (
-    <div />
   )
 }
 

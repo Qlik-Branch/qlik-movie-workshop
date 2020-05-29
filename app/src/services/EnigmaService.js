@@ -10,16 +10,29 @@ class EnigmaService {
 
   async init() {
     console.log("Creating Session...")
+    const fetchResult = await fetch(
+      `https://${process.env.REACT_APP_TENANT}/api/v1/csrf-token`,
+      {
+        credentials: "include",
+        headers: {
+          "qlik-web-integration-id": process.env.REACT_APP_WEB_INTEGRATION_ID,
+          Authorization: `Bearer ${process.env.REACT_APP_API_KEY}`,
+          "content-type": "application/json"
+        }
+      }
+    )
+    const csrfToken = fetchResult.headers.get("qlik-csrf-token")
+    if (csrfToken == null) return -1
     const session = enigma.create({
       schema,
-      url: "ws://localhost:9076",
+      url: `wss://${process.env.REACT_APP_TENANT}/app/${process.env.REACT_APP_QLIK_APP}?qlik-web-integration-id=${process.env.REACT_APP_WEB_INTEGRATION_ID}&qlik-csrf-token=${csrfToken}`,
       createSocket: url => new WebSocket(url)
     })
     console.log("Session Created. Opening...")
     this.qix = await session.open()
-    this.document = await this.qix.openDoc("Movies.qvf")
+    this.document = await this.qix.openDoc(process.env.REACT_APP_QLIK_APP)
     console.log("Document opened.")
-    return this.document
+    return 1
   }
 
   static createInstance() {

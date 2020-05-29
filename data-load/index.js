@@ -4,6 +4,13 @@ const schema = require("enigma.js/schemas/12.170.2.json")
 const Halyard = require("halyard.js")
 const mixins = require("halyard.js/dist/halyard-enigma-mixin")
 const fs = require("fs")
+require('dotenv').config()
+
+const {
+  API_KEY,
+  QLIK_APP,
+  TENANT
+} = process.env
 
 ;(async () => {
   try {
@@ -28,13 +35,17 @@ const fs = require("fs")
     const session = enigma.create({
       schema,
       mixins,
-      url: "ws://localhost:9076",
-      createSocket: url => new WebSocket(url)
+      url: `wss://${TENANT}/app/${QLIK_APP}`,
+      createSocket: url => new WebSocket(url, {
+        headers: {
+          "Authorization": `Bearer ${API_KEY}`
+        }
+      })
     })
     console.log("Created. Opening...")
     const qix = await session.open()
     console.log("Opened. Creating App...")
-    const app = await qix.createAppUsingHalyard("Movies", halyard)
+    const app = await qix.reloadAppUsingHalyard(QLIK_APP, halyard)
 
     console.log("Creating session object with movies.")
     // the following code will just confirm the data is in the app by requesting the first 10 movie titles
