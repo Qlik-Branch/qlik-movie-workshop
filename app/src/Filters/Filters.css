@@ -1,0 +1,15 @@
+.Filters {
+  display: flex;
+}
+
+.titleContainer {
+  display: flex;
+  flex-direction: column;
+  margin-right: 40px;
+}
+
+.title {
+  text-transform: uppercase;
+  font-size: 26px;
+  margin: 0 5px 5px;
+}
