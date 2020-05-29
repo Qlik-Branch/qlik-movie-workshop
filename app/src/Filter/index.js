@@ -20,13 +20,24 @@ const Filter = props => {
         const classes = ["filter-item"]
         classes.push(`state-${item.qState.toLowerCase()}`)
         return (
-          <div key={value} className={classes.join(" ")}>
+          <div
+            key={value}
+            className={classes.join(" ")}
+            onClick={() => selectValue(value)}
+          >
             {value}
           </div>
         )
       }
     )
     setFilterList(filterList)
+  }
+
+  const selectValue = async value => {
+    await EnigmaService.makeSelection(
+      props.field,
+      value === "<none>" ? "" : value
+    )
   }
 
   return (

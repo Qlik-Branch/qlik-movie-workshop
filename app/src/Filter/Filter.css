@@ -35,3 +35,15 @@
   color: white;
   font-size: 14px;
 }
+
+.state-s {
+  color: #009845;
+}
+
+.state-a {
+  color: #a6a6a6;
+}
+
+.state-x {
+  color: #525252;
+}
