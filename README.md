@@ -24,3 +24,12 @@ In order to take full advantage of this workshop the following technologies shou
 2. `cd data-load`
 3. `npm install`
 4. `npm start`
+
+# Step 2 - Running the project
+
+1. ensure step 1 has been completed.
+2. From the root of the project: `cd app`
+3. `npm install`
+4. `npm start`
+
+If you're running the project and moving between branches 3-9 the project should automatically update as the branch changes.
